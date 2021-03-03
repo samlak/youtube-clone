@@ -1,16 +1,17 @@
+import React, { useState } from 'react';
+
 import {
   Box,
   GridItem,
-  VStack,
-  StackDivider,
   InputGroup,
   Input,
   InputRightAddon,
   Icon,
   HStack,
   Image,
-  Button,
-  ButtonGroup
+  Flex,
+  Drawer,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 import { 
@@ -19,140 +20,136 @@ import {
   VideoCall,
   Apps,
   Notifications,
-  Menu
+  Menu,
+  ArrowBack
 } from '@material-ui/icons';
 
 import ProfilePic from '../../assets/profile.jpg';
 // import YoutubeDarkLogo from '../../assets/youtube_dark.png';
 import YoutubeLightLogo from '../../assets/youtube_light.png';
+import SideBarDrawer from './SideBar/SideBarDrawer';
 
 const Header = (props) => {
+  const [onSearch, setOnSearch] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
 
   return (
-    <>
-      <GridItem colSpan={2}>
-        <Box h="60px" d="flex" alignItems="center">
-          <HStack>
-            <Box>
-              <Icon  as={Menu} />
-            </Box>
+    <GridItem colSpan={2}
+      // position="fixed"
+      w="100%"
+    >
 
-              <Image 
-                src={YoutubeLightLogo} 
-                objectFit="cover" 
-                align="center"
-                htmlHeight="20px"
-                htmlWidth="80px"
-                alt="Youtube Logo"  />
+      <Flex 
+        h="60px" 
+        alignItems="center" 
+        justify="space-between" 
+        mx="30px"
+        display={onSearch ? "none" : "flex"}
+      >
+        <HStack  w={["auto", "120px", "180px", "240px"]} >
+          <Box 
+            as="button"  
+            mr={4} 
+            ref={btnRef} 
+            onClick={onOpen}
+          >
+            <Icon  as={Menu} />
+          </Box>
+    
+          <Image 
+            src={YoutubeLightLogo} 
+            objectFit="cover" 
+            align="center"
+            htmlHeight="20px"
+            htmlWidth="80px"
+            alt="Youtube Logo"  
+          />
+        </HStack>
 
-            <InputGroup size="sm">
-              <Input placeholder="Search" />
-              <InputRightAddon children={<Icon  as={Search} color="gray.500" />} />
-            </InputGroup>
-            <Box>
-              <Icon  as={Mic} />
-            </Box>
-            <Box>
-              <Icon  as={VideoCall} />
-            </Box>
-            <Box>
-              <Icon  as={Apps} />
-            </Box>
-            <Box>
-              <Icon  as={Notifications} />
-            </Box>
-            <Image
-              borderRadius="full"
-              boxSize="30px"
-              src={ProfilePic}
-              alt="Profile Pic"
-            />
-          </HStack>
+        <Flex 
+          flexGrow="1"
+          mx={10} 
+          justifyContent="flex-end"
+        >
+          <InputGroup 
+            size="sm"
+            display={["none", "none", "flex", "flex"]} 
+          >
+            <Input placeholder="Search" />
+            <InputRightAddon children={<Icon  as={Search} color="gray.500" />} />
+          </InputGroup>
+          <Box ml={3}>
+            <Icon  as={Mic} />
+          </Box>
+          <Box 
+            as="button"
+            ml={3}
+            display={["block", "block", "none", "none"]}
+            onClick={() => setOnSearch(true)}
+          >
+            <Icon as={Search} />
+          </Box>
+        </Flex>
+
+        <HStack 
+          w={["auto", "auto", "auto", "240px"]} 
+          justifyContent="flex-end"
+          spacing={["0", "20px", "20px", "30px"]} 
+        >
+          <Box>
+            <Icon  as={VideoCall} />
+          </Box>
+          <Box>
+            <Icon  as={Apps} />
+          </Box>
+          <Box>
+            <Icon  as={Notifications} />
+          </Box>
+          <Image
+            borderRadius="full"
+            boxSize="30px"
+            src={ProfilePic}
+            alt="Profile Pic"
+          />
+        </HStack> 
+      </Flex>
+
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <SideBarDrawer closeDrawer={onClose} />
+      </Drawer>
+
+      <Flex 
+        h="60px" 
+        alignItems="center" 
+        justify="space-between" 
+        mx="30px"
+        display={onSearch ? "flex" : "none"}
+      >
+        <Box 
+          mr={3}
+          as="button"
+          onClick={() => setOnSearch(false)}
+        >
+          <Icon as={ArrowBack} />
         </Box>
-      </GridItem>
-      
-
-      <GridItem colStart={2} borderWidth="1px" borderRight="none" borderLeft="none" >
-        <Box h="60px" d="flex" alignItems="center">
-          <HStack>
-            <ButtonGroup size="md" spacing="3">
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-              <Button 
-                borderRadius="20px"
-                border="2px"
-                // colorScheme="blue"
-                colorScheme="gray"
-                borderColor="gray.300"
-              >
-                Category
-              </Button>
-            </ButtonGroup>
-          </HStack>
+        <InputGroup 
+          size="sm"
+        >
+          <Input placeholder="Search" />
+          <InputRightAddon children={<Icon  as={Search} color="gray.500" />} />
+        </InputGroup>
+        <Box ml={3}>
+          <Icon  as={Mic} />
         </Box>
-      </GridItem >
-    </>
+      </Flex>
+
+    </GridItem>     
   );
 } 
 

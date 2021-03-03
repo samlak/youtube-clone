@@ -4,7 +4,8 @@ import {
 
 import Header from "./Header";
 import Content from "./Content";
-import SideBar from "./SideBar";
+import SideBar from "./SideBar/SideBar";
+import NavBar from "./NavBar";
 
 
 const Dashboard = (props) => {
@@ -13,9 +14,12 @@ const Dashboard = (props) => {
     <Grid
       templateRows="60px 60px auto"
       templateColumns="240px auto"
-      h="700px"
+      // h="100vh"
+      
+      // position="fixed"
     >
       <Header />
+      <NavBar />
       <SideBar />
       <Content />
     </Grid>

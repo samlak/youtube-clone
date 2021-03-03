@@ -1,11 +1,10 @@
 import React from 'react';
 import {
   ChakraProvider,
-  theme
 } from '@chakra-ui/react';
 import Dashboard from './containers/Dashboard';
 
-// import theme from './theme'
+import theme from './theme'
 
 function App() {
   return (
