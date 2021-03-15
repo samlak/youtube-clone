@@ -17,6 +17,10 @@ import {
   IconButton,
   Portal,
   MenuItem,
+  Skeleton,
+  Stack,
+  SkeletonCircle,
+  Flex
 } from '@chakra-ui/react';
 
 import {
@@ -172,6 +176,21 @@ const Content = props => {
               </Box>
             </HStack>
           </VStack>
+        </Box>
+        
+        <Box w="100%">
+          <Stack>
+            <Skeleton height={["250px", "250px", "250px", "200px", "150px"]} />
+            <HStack>
+              <Box w="20%">
+                <SkeletonCircle size="10" />
+              </Box>
+              <Box  w="80%">
+                <Skeleton  height="20px" mb={2}/>
+                <Skeleton  height="20px" mr="60px" />
+              </Box>
+            </HStack>
+          </Stack>
         </Box>
       </Grid>
     </GridItem>
