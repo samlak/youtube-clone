@@ -57,7 +57,6 @@ const Content = props => {
         rowGap={10}
       >
         {videos.map(video => (
-
           <Box w="100%">
             <VStack
               onMouseEnter={() => setIsHovered(true)}
@@ -189,24 +188,26 @@ const Content = props => {
               </HStack>
             </VStack>
           </Box>
-        
         ))}
 
-        {/* <Box w="100%">
-          <Stack>
-            <Skeleton height={["250px", "250px", "250px", "200px", "150px"]} />
-            <HStack>
-              <Box w="20%">
-                <SkeletonCircle size="10" />
-              </Box>
-              <Box  w="80%">
-                <Skeleton  height="20px" mb={2}/>
-                <Skeleton  height="20px" mr="60px" />
-              </Box>
-            </HStack>
-          </Stack>
-        </Box>
-         */}
+        {/* Skeleton; To be implemented later */}
+        {/* {videos.map(video => (
+          <Box w="100%">
+            <Stack>
+              <Skeleton height={["250px", "250px", "250px", "200px", "150px"]} />
+              <HStack>
+                <Box w="20%">
+                  <SkeletonCircle size="10" />
+                </Box>
+                <Box  w="80%">
+                  <Skeleton  height="20px" mb={2}/>
+                  <Skeleton  height="20px" mr="60px" />
+                </Box>
+              </HStack>
+            </Stack>
+          </Box>
+        ))} */}
+
       </Grid>
     </GridItem>
   );
