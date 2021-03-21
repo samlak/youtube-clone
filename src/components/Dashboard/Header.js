@@ -13,13 +13,12 @@ import {
   Drawer,
   useDisclosure,
   useColorMode,
-  Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   Switch,
-  FormLabel
+  FormLabel,
 } from '@chakra-ui/react';
 
 import { 
@@ -31,10 +30,12 @@ import {
   ArrowBack
 } from '@material-ui/icons';
 
+import { Link } from 'react-router-dom';
+
 import { Menu as MenuMaterialIcon } from '@material-ui/icons'
 
 import ProfilePic from '../../assets/profile.jpg';
-// import YoutubeDarkLogo from '../../assets/youtube_dark.png';
+import YoutubeDarkLogo from '../../assets/youtube_dark.png';
 import YoutubeLightLogo from '../../assets/youtube_light.png';
 import SideBarDrawer from './SideBar/SideBarDrawer';
 
@@ -67,14 +68,16 @@ const Header = (props) => {
             <Icon  as={MenuMaterialIcon} />
           </Box>
     
+          <Link to="/">
           <Image 
-            src={YoutubeLightLogo} 
+            src={colorMode === "light" ? YoutubeLightLogo : YoutubeDarkLogo}
             objectFit="cover" 
             align="center"
             htmlHeight="20px"
             htmlWidth="80px"
             alt="Youtube Logo"  
           />
+          </Link>
         </HStack>
 
         <Flex 
