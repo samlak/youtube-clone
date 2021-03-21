@@ -21,8 +21,7 @@ import {
   ThumbUp,
   PlaylistPlay,
   ExpandLess,
-  ExpandMore,
-  WifiTethering
+  ExpandMore
 } from '@material-ui/icons';
 
 import ProfilePic from '../../../assets/profile.jpg';
@@ -193,27 +192,6 @@ const SideBarContent = (props) => {
         marginLeft="30px"
         marginTop="10px"
       >
-        CRIPTIONS
-
-Joma Tech
-
-Mark Angel TV
-
-ColdFusion
-
-MarkAngelComedy
-
-MercifulServant
-
-Jake Tran
-
-FRONTLINE PBS | Official
-
-Y Combinator
-
-Garry Tan
-
-AdoraHack
         <Text fontWeight="medium" mb="10px">
           SUBSCRIPTIONS
         </Text>
@@ -231,6 +209,7 @@ AdoraHack
             <Text fontSize="sm" fontWeight="medium" mr="40px" isTruncated>
               Joma Tech
             </Text>
+            
             <Text 
               fontWeight="bold" 
               fontSize="lg" 

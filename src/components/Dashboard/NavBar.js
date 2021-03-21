@@ -29,8 +29,80 @@ const NavBar = (props) => {
               colorScheme="gray"
               borderColor="gray.300"
             >
-              Category
+              All
             </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Cryptocurrency
+            </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Stocks
+            </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Commedies
+            </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Confidence
+            </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Frontline
+            </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Motivation
+            </Button>
+            <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Elon Musk
+            </Button>
+            {/* <Button 
+              borderRadius="20px"
+              border="2px"
+              // colorScheme="blue"
+              colorScheme="gray"
+              borderColor="gray.300"
+            >
+              Computer programming
+            </Button> */}
           </ButtonGroup>
         </HStack>
       </Box>

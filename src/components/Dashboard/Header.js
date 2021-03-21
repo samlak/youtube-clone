@@ -12,6 +12,14 @@ import {
   Flex,
   Drawer,
   useDisclosure,
+  useColorMode,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Switch,
+  FormLabel
 } from '@chakra-ui/react';
 
 import { 
@@ -20,9 +28,10 @@ import {
   VideoCall,
   Apps,
   Notifications,
-  Menu,
   ArrowBack
 } from '@material-ui/icons';
+
+import { Menu as MenuMaterialIcon } from '@material-ui/icons'
 
 import ProfilePic from '../../assets/profile.jpg';
 // import YoutubeDarkLogo from '../../assets/youtube_dark.png';
@@ -32,14 +41,15 @@ import SideBarDrawer from './SideBar/SideBarDrawer';
 const Header = (props) => {
   const [onSearch, setOnSearch] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
   const btnRef = React.useRef();
+  
 
   return (
     <GridItem colSpan={2}
       // position="fixed"
       w="100%"
     >
-
       <Flex 
         h="60px" 
         alignItems="center" 
@@ -54,7 +64,7 @@ const Header = (props) => {
             ref={btnRef} 
             onClick={onOpen}
           >
-            <Icon  as={Menu} />
+            <Icon  as={MenuMaterialIcon} />
           </Box>
     
           <Image 
@@ -106,12 +116,31 @@ const Header = (props) => {
           <Box>
             <Icon  as={Notifications} />
           </Box>
-          <Image
-            borderRadius="full"
-            boxSize="30px"
-            src={ProfilePic}
-            alt="Profile Pic"
-          />
+          
+          <Menu closeOnSelect={false}>
+            <MenuButton>
+              <Image
+                borderRadius="full"
+                boxSize="30px"
+                src={ProfilePic}
+                alt="Profile Pic"
+              />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>
+                <Switch 
+                  size="md" 
+                  id="color-mode" 
+                  onChange={toggleColorMode}
+                  defaultChecked={colorMode === "light" ? "false" : "true"}
+                  colorScheme="blackAlpha"
+                />
+                <FormLabel htmlFor="color-mode" ml="10px" mb="0">
+                  {colorMode === "light" ? "Light" : "Dark"} Mode
+                </FormLabel>
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </HStack> 
       </Flex>
 
